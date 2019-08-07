@@ -3,7 +3,7 @@ const ComputerBinder = {
     document.querySelector('[name=id]').value = computer.id
     document.querySelector('[name=name]').value = computer.name
     document.querySelector('[name=price]').value = computer.price
-    document.querySelector('[name=IsInStock]').checked = computer.isInStock
+    document.querySelector('[name=isInStock]').checked = computer.isInStock
     document.querySelector('[name=releaseDate]').value = computer.releaseDate
   },
   fromDom: function() {
@@ -24,13 +24,13 @@ function loadComputers() {
     .then(result => {
       var tbody = document.getElementById('rows')
       for (let c of result.data) {
-        let tr = tbody.children[0];
+        let tr = tbody.children[0]
         let clone = tr.cloneNode(true)
         clone.children[0].innerText = c.name
         clone.children[1].innerText = `${c.price} €`
         clone.children[2].children[0].onclick = () => showDetails(c.id)
         clone.children[3].children[0].onclick = () => deleteComputer(c.id)
-
+        clone.style.display = "table-row"
         tbody.appendChild(clone)
       }
     })
@@ -58,7 +58,7 @@ function put() {
       location.reload()
     })
     .catch(err => alert(err))
-    hideLoader()
+    .finally(()=>hideLoader())
 }
 
 function deleteComputer(id) {

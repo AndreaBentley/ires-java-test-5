@@ -18,10 +18,21 @@ table button {
   padding: 0;
 }
 
+.minimal-buttons{
+    width: 1%;
+}
+
 .section {
   background-color: white;
   border: 2px solid green;
   border-radius: 5px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 form button {
@@ -33,6 +44,8 @@ form button {
   height: 100vh;
   background-color: rgba(200, 200, 200, 0.8);
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: row;
   z-index: 1;
   position: fixed;
